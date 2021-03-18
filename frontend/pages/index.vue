@@ -62,8 +62,10 @@ export default {
       this.showNotification = !this.showNotification
       setTimeout(()=>{
         this.showNotification = !this.showNotification
-      }, 1000)
+      }, 2000)
     },
+
+  
     unresolveError(id){
       let resolvedData = this.resolved.find(data => data.index === id)
       let position = this.resolved.findIndex(data=> data.index === id)
@@ -116,6 +118,7 @@ export default {
           delete undoData.from
           delete undoData.position
           this.resolved.splice(errorPosition, 0, undoData)
+          console.log(errorPosition)
           this.undoData = {}
           break;
         case 'unresolved':
@@ -124,6 +127,7 @@ export default {
           delete undoData.from
           delete undoData.position
           this.unresolved.splice(errorPosition, 0, undoData)
+          console.log(errorPosition)
           this.undoData = {}
           break;
         case 'backlog':
@@ -516,6 +520,10 @@ export default {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
 }
 .btn{
